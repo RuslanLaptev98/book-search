@@ -1,7 +1,16 @@
 import React from 'react'
 import './modal.css'
 
-const Modal = ({ active, setActive }) => {
+const Modal = ({
+    active,
+    setActive,
+    title,
+    author,
+    firstPublished,
+    publisher,
+    isbn,
+    cover,
+}) => {
     return (
         <div
             className={active ? 'modal active' : 'modal'}
@@ -12,14 +21,14 @@ const Modal = ({ active, setActive }) => {
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="modal-title">
-                    <p className="book-title">Crime and Punishment</p>
-                    <p className="book">Fyodor Dostoevsky</p>
+                    <p className="book-title">{title}</p>
+                    <p className="book">{author}</p>
                 </div>
-                <div className="modal-cover">Modal cover</div>
+                <div className="modal-cover">{cover}</div>
                 <div className="modal-info">
-                    <p className="book">Published: 1866</p>
-                    <p className="book">Publisher: Publisher name</p>
-                    <p className="book">ISBN: isbn</p>
+                    <p className="book">First Published: {firstPublished}</p>
+                    <p className="book">Publisher: {publisher}</p>
+                    <p className="book">ISBN: {isbn}</p>
                 </div>
             </div>
         </div>

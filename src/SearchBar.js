@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function SearchBar(props) {
-    console.log(props)
     return (
         <div id="SearchBar">
             <input

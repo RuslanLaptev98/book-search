@@ -1,19 +1,37 @@
 import React, { useState } from 'react'
 import Modal from './Modal'
 
-export default function Snippet() {
+export default function Snippet({
+    title,
+    author,
+    firstPublished,
+    publisher,
+    isbn,
+    cover,
+}) {
     const [modalActive, setModalActive] = useState(false)
 
     return (
         <div>
             <div id="Snippet" onClick={() => setModalActive(true)}>
                 <div className="snippet-title">
-                    <p className="book-title">Crime and Punishment</p>
-                    <p className="book">Fyodor Dostoevsky</p>
+                    <p className="book-title">{title}</p>
+                    <p className="book">{author}</p>
                 </div>
-                <div className="snippet-cover">Book Cover</div>
+                <div className="snippet-cover">
+                    <img src={cover} alt="book cover" />
+                </div>
             </div>
-            <Modal active={modalActive} setActive={setModalActive} />
+            <Modal
+                active={modalActive}
+                setActive={setModalActive}
+                title={title}
+                author={author}
+                firstPublished={firstPublished}
+                publisher={publisher}
+                isbn={isbn}
+                cover={cover}
+            />
         </div>
     )
 }
