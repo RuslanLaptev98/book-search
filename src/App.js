@@ -16,6 +16,7 @@ function App() {
     let firstPublished = 'first published'
     let isbn = 'isbn'
     let key = ''
+
     // delay
     let timer = null
     const delay = () => {
@@ -28,8 +29,8 @@ function App() {
 
     async function fetchApi() {
         try {
-            clearTimeout(timer)
-            await delay()
+            //clearTimeout(timer)
+            //await delay()
             const response = await fetch(apiUrl)
             const data = await response.json()
             setBooks(data.docs)
@@ -38,21 +39,6 @@ function App() {
         } catch (e) {
             console.error(e)
         }
-    }
-    const renderingSnippets = () => {
-        let bookObject = {}
-        books.map((book) => {
-            book.title
-                ? (bookObject.bookTitle = book.title)
-                : (bookObject.bookTitle = 'unknown')
-            book.author_name
-                ? (bookObject.bookAuthor = book.author_name[0])
-                : (bookObject.bookAuthor = 'unknown')
-            book.key
-                ? (bookObject.bookKey = book.key)
-                : (bookObject.bookKey = 'unknown')
-            bookArray.push(bookObject)
-        })
     }
 
     useEffect(() => {
@@ -67,7 +53,7 @@ function App() {
                 }}
             />
 
-            {books.slice(0, 20).map((book) => {
+            {books.slice(0, 10).map((book) => {
                 console.log(book)
                 return (
                     <Snippet
@@ -85,7 +71,13 @@ function App() {
                             book.publisher ? book.publisher[0] : 'unknown'
                         }
                         isbn={book.isbn ? book.isbn[0] : 'unknown'}
-                        cover={cover}
+                        cover={
+                            book.isbn
+                                ? 'http://covers.openlibrary.org/b/isbn/' +
+                                  book.isbn[0] +
+                                  '-M.jpg'
+                                : ''
+                        }
                     />
                 )
             })}

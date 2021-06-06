@@ -88,7 +88,6 @@ body {
     padding-bottom: 1.25rem;
 }
 .snippet-cover {
-    background-color: var(--color-background);
     margin-top: 0.375rem;
     margin-bottom: 0.375rem;
     flex-grow: 0.4;
