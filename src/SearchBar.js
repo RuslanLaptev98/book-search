@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function SearchBar(props) {
-    const input = document.getElementById('search-input')
     return (
         <div id="SearchBar">
             <input
@@ -12,10 +11,11 @@ export default function SearchBar(props) {
             />
             <button
                 id="search-button"
-                onClick={(e) => {
-                    console.log(input.value)
-                    props.onChange(input.value)
-                }}
+                onClick={() =>
+                    props.onChange(
+                        document.getElementById('search-input').value
+                    )
+                }
             >
                 Search
             </button>

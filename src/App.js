@@ -18,20 +18,32 @@ function App() {
     // fetch
     const apiUrl = `http://openlibrary.org/search.json?q=${search}`
 
-    async function fetchApi() {
-        try {
-            const response = await fetch(apiUrl)
-            const data = await response.json()
-            setBooks(data.docs)
-        } catch (e) {
-            console.error(e)
-        }
-    }
-
     useEffect(() => {
+        let controller = new AbortController()
+
+        async function fetchApi() {
+            try {
+                const response = await fetch(apiUrl, {
+                    signal: controller.signal,
+                })
+                const data = await response.json()
+                setBooks(data.docs)
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    console.log('fetch cancel: caught abort')
+                } else {
+                    throw error
+                }
+            }
+        }
+
         fetchApi()
         if (loadMoreButton) {
             loadMoreButton.style.display = 'block'
+        }
+
+        return () => {
+            controller.abort()
         }
     }, [search])
     return (
@@ -43,7 +55,6 @@ function App() {
             />
 
             {books.slice(0, visible).map((book) => {
-                console.log(book)
                 return (
                     <Snippet
                         key={book.key}
