@@ -6,7 +6,7 @@ export default function SearchBar(props) {
             <input
                 type="text"
                 id="search-input"
-                placeholder="Book name or author..."
+                placeholder="Book or author..."
                 onChange={(e) => props.onChange(e.target.value)}
             />
             <button
