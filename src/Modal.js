@@ -25,7 +25,11 @@ const Modal = ({
                     <p className="book">{author}</p>
                 </div>
                 <div className="modal-cover">
-                    <img src={cover} alt="book cover" />
+                    <img
+                        src={cover}
+                        alt="no cover available"
+                        className="img-modal-cover"
+                    />
                 </div>
                 <div className="modal-info">
                     <p className="book">First Published: {firstPublished}</p>

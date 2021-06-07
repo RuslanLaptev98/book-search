@@ -3,47 +3,36 @@ import Snippet from './Snippet'
 import { useState, useEffect } from 'react'
 
 function App() {
-    let bookArray = []
     // Search Input Value
     const [search, setSearch] = useState('')
     const [books, setBooks] = useState([])
 
-    // Book Properties
-    let author = 'Author'
-    let title = 'Title'
-    let cover = ''
-    let publisher = 'Publisher'
-    let firstPublished = 'first published'
-    let isbn = 'isbn'
-    let key = ''
-
-    // delay
-    let timer = null
-    const delay = () => {
-        return new Promise((resolve) => {
-            timer = setTimeout(() => resolve(), 1000)
-        })
+    // Pagination
+    const [visible, setVisible] = useState(5)
+    const loadMoreBooks = () => {
+        setVisible((prevValue) => prevValue + 5)
     }
+    // Pagination button
+    const loadMoreButton = document.getElementById('load-more-button')
+
     // fetch
     const apiUrl = `http://openlibrary.org/search.json?q=${search}`
 
     async function fetchApi() {
         try {
-            //clearTimeout(timer)
-            //await delay()
             const response = await fetch(apiUrl)
             const data = await response.json()
             setBooks(data.docs)
-            console.log(books)
-            // assigning states and creating new array of objects
         } catch (e) {
             console.error(e)
         }
     }
 
     useEffect(() => {
-        console.log('useEffect worked')
         fetchApi()
+        if (loadMoreButton) {
+            loadMoreButton.style.display = 'block'
+        }
     }, [search])
     return (
         <div className="App">
@@ -53,7 +42,7 @@ function App() {
                 }}
             />
 
-            {books.slice(0, 10).map((book) => {
+            {books.slice(0, visible).map((book) => {
                 console.log(book)
                 return (
                     <Snippet
@@ -81,6 +70,9 @@ function App() {
                     />
                 )
             })}
+            <button id="load-more-button" onClick={loadMoreBooks}>
+                Load more books
+            </button>
         </div>
     )
 }

@@ -19,7 +19,11 @@ export default function Snippet({
                     <p className="book">{author}</p>
                 </div>
                 <div className="snippet-cover">
-                    <img src={cover} alt="book cover" />
+                    <img
+                        className="img-snippet-cover"
+                        src={cover}
+                        alt="no cover available"
+                    />
                 </div>
             </div>
             <Modal
