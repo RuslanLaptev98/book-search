@@ -16,7 +16,7 @@ function App() {
     const loadMoreButton = document.getElementById('load-more-button')
 
     // fetch
-    const apiUrl = `http://openlibrary.org/search.json?q=${search}`
+    const apiUrl = `https://openlibrary.org/search.json?q=${search}`
 
     useEffect(() => {
         let controller = new AbortController()
