@@ -1,1 +1,6 @@
-# This is a test task for a Frontend Developer Intern position
+#### Book Search
+
+-   type: Web application, test task for a Frontend Developer Intern position
+-   functionality: searches for books using Open Library API
+-   technologies: React JS, JavaScript
+-   link: https://ruslanlaptev-book-search.netlify.app/
