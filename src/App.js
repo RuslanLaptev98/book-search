@@ -81,7 +81,11 @@ function App() {
                     />
                 )
             })}
-            <button id="load-more-button" onClick={loadMoreBooks}>
+            <button
+                className="load-more-button"
+                id="load-more-button"
+                onClick={loadMoreBooks}
+            >
                 Load more books
             </button>
         </div>

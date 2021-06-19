@@ -13,14 +13,14 @@ export default function Snippet({
 
     return (
         <div>
-            <div id="Snippet" onClick={() => setModalActive(true)}>
-                <div className="snippet-title">
-                    <p className="book-title">{title}</p>
-                    <p className="book">{author}</p>
+            <div className="snippet" onClick={() => setModalActive(true)}>
+                <div className="snippet__title">
+                    <p className="snippet__book-title">{title}</p>
+                    <p className="snippet__book-author">{author}</p>
                 </div>
-                <div className="snippet-cover">
+                <div className="snippet__cover">
                     <img
-                        className="img-snippet-cover"
+                        className="snippet__image"
                         src={cover}
                         alt="no cover available"
                     />

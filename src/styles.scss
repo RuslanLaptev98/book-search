@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root {
+    --color-primary: #c1d5e0;
+    --color-background: #f5f5f6;
+    --color-dark: #62757f;
+    --color-text-title: #000000;
+    --color-text-main: rgba(0, 0, 0, 0.7);
+    --color-text-placeholder: rgba(0, 0, 0, 0.5);
+    --color-text-button: #ffffff;
+    font-size: 16px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+}
+.searchbar {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+
+    #{&}__input {
+        border: none;
+        border-radius: 0.625rem;
+        background-color: var(--color-primary);
+        color: var(--color-text-title);
+        font-size: 1rem;
+        padding-left: 0.625rem;
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
+        width: 40vw;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+        outline: none;
+    }
+    #{&}__input::placeholder {
+        color: var(--color-text-placeholder);
+    }
+    #{&}__input:hover {
+        box-shadow: none;
+    }
+    #{&}__input:focus {
+        opacity: 0.9;
+        box-shadow: none;
+    }
+    #{&}__button {
+        border: none;
+        border-radius: 0.625rem;
+        background-color: var(--color-dark);
+        color: var(--color-text-button);
+        margin-left: 4px;
+        padding: 0.625rem;
+        font-size: 1rem;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+    }
+    #{&}__button:hover {
+        box-shadow: none;
+    }
+    #{&}__button:active {
+        opacity: 0.9;
+    }
+}
+.snippet {
+    display: flex;
+    max-width: 80vw;
+    margin: auto;
+    margin-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 0.75rem;
+    background-color: var(--color-primary);
+    border-radius: 0.625rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+
+    #{&}__title {
+        flex-grow: 1;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+    #{&}__cover {
+        margin-top: 0.375rem;
+        margin-bottom: 0.375rem;
+        flex-grow: 0.4;
+        border-radius: 5px;
+    }
+    #{&}__image {
+        border-radius: 5px;
+        display: block;
+        margin: auto;
+        width: 100px;
+    }
+    #{&}__book-title {
+        color: var(--color-text-title);
+        font-size: 1.125rem;
+        margin-bottom: 0.25rem;
+    }
+    #{&}__book-author {
+        color: var(--color-text-main);
+    }
+}
+.snippet:hover {
+    box-shadow: none;
+}
+.load-more-button {
+    border: none;
+    border-radius: 0.625rem;
+    background-color: var(--color-dark);
+    color: var(--color-text-button);
+    display: none;
+    margin: auto;
+    margin-bottom: 1rem;
+    padding: 0.625rem;
+    font-size: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+}
+.load-more-button:hover {
+    box-shadow: none;
+}
+.load-more-button:active {
+    opacity: 0.9;
+}
+@media (min-width: 900px) {
+    #Snippet {
+        width: 60vw;
+    }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './modal.css'
+import './css/modal.css'
 
 const Modal = ({
     active,
@@ -20,21 +20,23 @@ const Modal = ({
                 className="modal__content"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="modal-title">
-                    <p className="book-title">{title}</p>
-                    <p className="book">{author}</p>
+                <div className="modal__title">
+                    <p className="modal__book-title">{title}</p>
+                    <p className="modal__book-info">{author}</p>
                 </div>
-                <div className="modal-cover">
+                <div className="modal__cover">
                     <img
                         src={cover}
                         alt="no cover available"
-                        className="img-modal-cover"
+                        className="modal__image"
                     />
                 </div>
-                <div className="modal-info">
-                    <p className="book">First Published: {firstPublished}</p>
-                    <p className="book">Publisher: {publisher}</p>
-                    <p className="book">ISBN: {isbn}</p>
+                <div className="modal__info">
+                    <p className="modal__book-info">
+                        First Published: {firstPublished}
+                    </p>
+                    <p className="modal__book-info">Publisher: {publisher}</p>
+                    <p className="modal__book-info">ISBN: {isbn}</p>
                 </div>
             </div>
         </div>
